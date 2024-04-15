@@ -227,3 +227,21 @@
     transform: rotate(0deg);
   }
 }
+
+@keyframes radioAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.radioIcon {
+  animation: radioAnimation 2s infinite; /* Adjust the duration and timing as needed */
+}

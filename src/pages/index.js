@@ -1,76 +1,107 @@
-/* eslint-disable react/no-unescaped-entities */
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-
-const Header = () => {
-  return (
-    <header
-      id='header'
-      className='navbar navbar-expand navbar-light navbar-absolute-top'
-    >
-      <div className='container'>
-        <nav className='navbar-nav-wrap'>
-          <a
-            className='navbar-barnd'
-            href='#'
-            aria-label='Space'
-          >
-            <Image
-              className='navbar-brand-logo'
-              src='/branding/logo-no-bg-500.png'
-              width={50}
-              height={100}
-              alt='Swahilipot FM Official Logo'
-            />
-          </a>
-          {/* End Default Logo */}
-          <div className='ms-auto'>
-            <a
-              className='btn btn-primary btn-transition'
-              href='https://swahilipothub.co.ke/'
-              target='_blank'
-            >
-              About Swahilipot
-            </a>
-          </div>
-        </nav>
-      </div>
-    </header>
-  )
-}
+import { useState, useEffect } from "react";
+import HeroSection from "./HeroSection";
+import Navbar from "./components/NavBar";
+import Blog from "./components/BlogSection"; // Import the BlogSection component
 
 const Footer = () => {
   // get current year
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
-    <footer className='position-sm-absolute start-0 end-0 bottom-0'>
-      <div className='container py-4'>
-        <div className='row align-items-md-center text-center text-md-start'>
-          <div className='col-md mb-3 mb-md-0'>
-            <p className='mb-0'>
-              © Swahilipot FM {year}. All rights reserved.
+    <footer className="bg-info border-top border-white-10">
+      <div className="container">
+        <div className="row content-space-1">
+          <div className="col-12 col-lg-3 mb-7 mb-lg-0">
+            {/* Logo */}
+            <div className="mb-5">
+              {/* <Link href="/" passHref> */}
+              <a className="navbar-brand" aria-label="Space">
+                <img
+                  className="navbar-brand-logo"
+                  src="/branding/logo-no-bg-1080.png"
+                  alt="Image Description"
+                />
+              </a>
+              {/* </Link> */}
+            </div>
+            {/* End Logo */}
+
+            <span className="d-block">
+              <label htmlFor="selectLanguage" className="form-label text-white">
+                Choose language
+              </label>
+            </span>
+
+            {/* Button Group */}
+            <div className="btn-group">
+              <button
+                type="button"
+                className="btn btn-light btn-sm dropdown-toggle"
+                id="selectLanguage"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span className="d-flex align-items-center">
+                  <img
+                    className="avatar avatar-xss avatar-circle me-2"
+                    src="/assets/vendor/flag-icon-css/flags/1x1/us.svg"
+                    alt="Image description"
+                    width="16"
+                  />
+                  <span>English (US)</span>
+                </span>
+              </button>
+
+              <div className="dropdown-menu">
+                <a className="dropdown-item d-flex align-items-center" href="#">
+                  <img
+                    className="avatar avatar-xss avatar-circle me-2"
+                    src="/assets/vendor/flag-icon-css/flags/1x1/us.svg"
+                    alt="Image description"
+                    width="16"
+                  />
+                  <span>Swahili</span>
+                </a>
+                {/* Add other language options here */}
+              </div>
+            </div>
+            {/* End Button Group */}
+          </div>
+          {/* End Col */}
+
+          {/* Other columns */}
+        </div>
+        {/* End Row */}
+
+        <div className="border-top border-white-10"></div>
+
+        <div className="row align-items-md-end py-5">
+          <div className="col-md mb-3 mb-md-0">
+            <p className="text-white mb-0">
+              © SwahilipotFM. {year} . All rights reserved.
             </p>
           </div>
-          <div className='col-md d-md-flex justify-content-md-end'>
+
+          <div className="col-md d-md-flex justify-content-md-end">
             {/* Socials */}
-            <ul className='list-inline mb-0'>
-              <li className='list-inline-item'>
+            <ul className="list-inline mb-0">
+              <li className="list-inline-item">
                 <a
-                  className='btn btn-icon btn-sm btn-ghost-secondary rounded-circle'
-                  href='https://www.instagram.com/swahilipotfm/'
+                  className="btn btn-icon btn-sm btn-soft-light rounded-circle"
+                  href="https://www.instagram.com/swahilipotfm/"
                 >
-                  <i className='bi-instagram' />
+                  <i className="bi-instagram" />{" "}
                 </a>
               </li>
+              {/* Add other social icons here */}
             </ul>
             {/* End Socials */}
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
 const CountDown = () => {
   const calculateTimeLeft = () => {
@@ -82,7 +113,7 @@ const CountDown = () => {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
+        seconds: Math.floor((difference / 1000) % 60),
       };
     }
 
@@ -114,48 +145,37 @@ const CountDown = () => {
   });
 
   return (
-    <div className='col-3 col-sm-5'>
-      <div className='text-center text-sm-start'>
-        <h3 className='h2 text-primary'>Swahilipot FM</h3>
-        {/* <div>
-          {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-        </div> */}
-      </div>
+    <div className="col-3 col-sm-5">
+      <div className="text-center text-sm-start"></div>
     </div>
   );
 };
-
 const Home = () => {
   return (
     <>
-      <Header />
-      <main id='content' role='main'>
+      <Navbar /> {/* Include the Navbar component */}
+      <HeroSection />{" "}
+      {/* Include the HeroSection component just below the navbar */}
+      <main id="content" role="main">
         {/* Content */}
-        <div className='d-sm-flex'>
-          <div className='container d-sm-flex align-items-sm-center vh-sm-100 content-space-t-3 content-space-b-1 content-space-b-sm-3 content-space-sm-0'>
-            <div className='row justify-content-sm-between align-items-sm-center flex-grow-1'>
-              <div className='col-9 col-sm-5 mb-5 mb-sm-0'>
-                <Image
-                  className='img-fluid'
-                  src='/assets/svg/illustrations/oc-yelling.svg'
-                  width={500}
-                  height={500}
-                  alt='SVG Illustration'
-                />
-              </div>
-              {/* End Col */}
-              <CountDown />
-              {/* End Col */}
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-6 mb-5">
+              {/* Content 1 */}
+              {/* Add your content here */}
             </div>
-            {/* End Row */}
+            <div className="col-12 col-md-6 mb-5">
+              {/* Content 2 */}
+              {/* Add your content here */}
+            </div>
           </div>
         </div>
         {/* End Content */}
+        <Blog /> {/* Add the BlogSection component here*/}
       </main>
-
       <Footer />
     </>
-  )
-}
+  );
+};
 
 export default Home;
