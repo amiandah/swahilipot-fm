@@ -6,7 +6,7 @@ const BlogSection = () => {
     <div className="container content-space-1">
       {/* Heading */}
       <div className="w-lg-65 text-center mx-lg-auto mb-7">
-        <h3>Discover the power of Broadcast</h3>
+        <h3>Discover the power of Broadcasting</h3>
         <p className="fs-6">
           SwahilipotFM is revolutionizing Information and Entertainment through
           these ear-tingling programs.
@@ -92,7 +92,8 @@ const BlogSection = () => {
       <div className="text-center">
         <p className="mb-0">Want to read more?</p>
         <Link className="link" href="../blog-classic.html">
-          Explore SwahilipotFM news <i className="bi-chevron-right small ms-1"></i>
+          Explore SwahilipotFM news{" "}
+          <i className="bi-chevron-right small ms-1"></i>
         </Link>
       </div>
       {/* End Info */}

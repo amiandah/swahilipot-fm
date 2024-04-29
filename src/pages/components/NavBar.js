@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ScheduleDay from "../schedule"; // Import the ScheduleDay component
 
 const Navbar = () => {
   return (
@@ -44,8 +45,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/episodes">
-                  <span className="nav-link">Episodes</span>
+                <Link href="/schedule">
+                  <span className="nav-link">Programs</span>
                 </Link>
               </li>
               <li className="nav-item">
@@ -54,8 +55,8 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/blog">
-                  <span className="nav-link">Blog</span>
+                <Link href="#">
+                  <span className="nav-link">News and Updates</span>
                 </Link>
               </li>
               {/* Replace the dropdown with a direct link to the contact page */}
@@ -79,6 +80,8 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+      {/* Insert the ScheduleDay component here */}
+      {/* <ScheduleDay /> */}
     </header>
   );
 };

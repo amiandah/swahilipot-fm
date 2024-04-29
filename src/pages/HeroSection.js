@@ -1,4 +1,5 @@
 import React from "react";
+
 const HeroSection = () => {
   return (
     <div className="bg-info overflow-hidden">
