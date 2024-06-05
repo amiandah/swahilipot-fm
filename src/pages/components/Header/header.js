@@ -118,7 +118,7 @@ const Header = () => {
                                 <li
                                     className="hs-has-mega-menu nav-item"
                                     data-hs-mega-menu-item-options='{
-              "desktop": {
+         "desktop": {
                 "maxWidth": "20rem"
               }
             }'
